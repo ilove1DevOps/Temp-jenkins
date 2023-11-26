@@ -1,15 +1,5 @@
 pipeline {
     agent any
-
-    stages {
-        stage('Checkout') {
-            steps {
-               script {
-                    git branch: 'main',
-                        url: 'https://github.com/ilove1DevOps/Temp-jenkins.git'
-                }
-            }
-        }
     stage('Build') {
             steps {
                 steps {
@@ -22,5 +12,4 @@ pipeline {
                 echo 'docker run -d nginxwebsite:latest -p 51001:80'
             }
         }
-    }
 }
