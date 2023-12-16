@@ -11,7 +11,7 @@ pipeline {
         stage('Run') {
             steps {
                 script {
-                    sh 'docker run -d --name nginx -p 51001:80 nginx:latest'
+                    sh 'docker run -d --name nginx -p 51001:80 nginx:a${BUILD_NUMBER}'
                 }
             }
         }
