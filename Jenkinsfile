@@ -15,6 +15,16 @@ pipeline {
                 }
             }
         }
+
+        stage('Dockerhub Registry') {
+            steps {
+                script {
+                    {
+                        sh 'docker rm -f nginx'
+                    }
+                }
+            }
+        }
         stage('Dockerhub Registry') {
             steps {
                 script {
