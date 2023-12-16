@@ -1,15 +1,15 @@
 pipeline {
     agent any
-    stage('Build') {
-            steps {
+    stage('Build') 
+                {
                 steps {
-      	          sh 'docker build -t nginxwebsite .'
+      	          sh 'git clone https://github.com/ilove1DevOps/Temp-jenkins.git'
                   }
-            }
+            
         }
-        stage('Deploy') {
-            steps {
-                echo 'docker run -d nginxwebsite:latest -p 51001:80'
+    stage('Deploy') {
+                     steps {
+                echo 'docker build -t nginx .'
             }
         }
 }
