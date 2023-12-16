@@ -26,9 +26,9 @@ pipeline {
         stage('Dockerhub Registry') {
             steps {
                 script {
-                       sh 'docker tag nginx:${BUILD_NUMBER} nginx:a${BUILD_NUMBER}'
+                       sh 'docker tag nginx:${BUILD_NUMBER} piyushdhir121/nginx:a${BUILD_NUMBER}'
                     withCredentials([string(credentialsId: '3535', variable: 'docker creds')]) {
-                       sh 'docker push nginx:a${BUILD_NUMBER}'
+                       sh 'docker push piyushdhir121/nginx:a${BUILD_NUMBER}'
                     }
                 }
             }
