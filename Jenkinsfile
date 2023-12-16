@@ -4,7 +4,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'docker build -t nginx .'
+                    sh 'docker build -t nginx:a${BUILD_NUMBER} .'
                 }
             }
         }
@@ -26,8 +26,8 @@ pipeline {
         stage('Dockerhub Registry') {
             steps {
                 script {
+                       sh 'docker tag nginx:${BUILD_NUMBER} nginx:${BUILD_NUMBER}'
                     withCredentials([string(credentialsId: 'docker01', variable: 'docker-secret')]) {
-                       sh 'docker tag nginx:latest nginx:${BUILD_NUMBER}'
                        sh 'docker push nginx:${BUILD_NUMBER}'
                      }
                 }
