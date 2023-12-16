@@ -19,9 +19,7 @@ pipeline {
         stage('Remove the container') {
             steps {
                 script {
-                    {
-                        sh 'docker rm -f nginx'
-                    }
+                     sh 'docker rm -f nginx'
                 }
             }
         }
