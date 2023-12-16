@@ -16,7 +16,7 @@ pipeline {
             }
         }
 
-        stage('Dockerhub Registry') {
+        stage('Remove the container') {
             steps {
                 script {
                     {
