@@ -26,9 +26,10 @@ pipeline {
         stage('Dockerhub Registry') {
             steps {
                 script {
-                    withDockerRegistry(credentialsId: 'Docker-creds-01', url: 'https://hub.docker.com/') {
-                        sh 'docker push nginx:latest'
-                    }
+                    withCredentials([string(credentialsId: 'docker01', variable: 'docker-secret')]) {
+                       sh 'docker tag nginx:${BUILD_NUMBER}'
+                       sh 'docker push nginx:${BUILD_NUMBER}'
+                     }
                 }
             }
         }
