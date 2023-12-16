@@ -28,7 +28,7 @@ pipeline {
                 script {
                        sh 'docker tag nginx:${BUILD_NUMBER} nginx:a${BUILD_NUMBER}'
                     withCredentials([string(credentialsId: 'docker01', variable: 'docker-secret')]) {
-                       sh 'docker push nginx:${BUILD_NUMBER}'
+                       sh 'docker push nginx:a${BUILD_NUMBER}'
                      }
                 }
             }
